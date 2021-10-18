@@ -10,7 +10,7 @@ function Header() {
         <img src="/logo.svg" alt="logo" />
       </Link>
       <div className={styles.nav}>
-        <Link className={styles.nav__item} defaultValue="#" to="/search/#">
+        <Link className={styles.nav__item} to="/search/javascript">
           Search
         </Link>
         <HashLink className={styles.nav__item} to="/#how-it-works">
