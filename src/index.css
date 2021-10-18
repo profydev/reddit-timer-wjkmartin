@@ -1,3 +1,14 @@
 @import-normalize;
 @import url('https://fonts.googleapis.com/css2?family=Bitter&family=Montserrat&display=swap');
 
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+}
+
+#root {
+    width: 100%;
+}
