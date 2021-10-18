@@ -1,0 +1,20 @@
+.Header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo {
+    back
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav__item {
+    margin-left: 25px; 
+    text-decoration: none;
+    font-family: Montserrat;
+}
