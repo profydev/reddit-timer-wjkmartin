@@ -1,0 +1,20 @@
+.Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    max-width: 1440px;
+    margin: 0px auto;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav__item {
+    color: #636363;
+    margin-left: 25px; 
+    text-decoration: none;
+    font-family: Montserrat;
+}
