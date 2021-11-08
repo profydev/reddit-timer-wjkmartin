@@ -17,3 +17,10 @@ body {
     align-items: center;
     min-height: 100vh;
 }
+
+h3, p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
