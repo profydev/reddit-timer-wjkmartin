@@ -21,6 +21,9 @@
 
 .Hero__linkButton {
     margin-bottom: 2rem;
+}
+
+.Hero__linkButton {
     height: 36px;
     width: 217px;
     border-radius: 4px;
@@ -31,10 +34,6 @@
     text-decoration: none;
     font-family: Montserrat, sans-serif;
     font-size: 14px;
-}
-
-.Hero__image {
-    width: 80%;
 }
 
 .Hero__image img {
