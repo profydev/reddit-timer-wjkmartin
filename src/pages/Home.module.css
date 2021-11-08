@@ -1,0 +1,45 @@
+.Home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.Hero__title {
+    font-size: 38px;
+    font-family: Bitter;
+    color: black;
+    margin-bottom: 0;
+}
+
+.Hero__subTitle {
+    color: #93918F;
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    margin: 1rem;
+}
+
+.Hero__linkButton {
+    height: 36px;
+    width: 217px;
+    border-radius: 4px;
+    background-color: #FDB755;
+    color: white;
+    text-align: center;
+    line-height: 36px;
+    text-decoration: none;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+}
+
+.Hero__subreddit {
+    color: #93918F;
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.Hero__image {
+    
+}
