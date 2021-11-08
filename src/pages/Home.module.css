@@ -3,7 +3,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
 }
 
 .Hero__title {
@@ -17,10 +16,11 @@
     color: #93918F;
     font-family: Montserrat, sans-serif;
     font-size: 16px;
-    margin: 1rem;
+    margin: 2rem;
 }
 
 .Hero__linkButton {
+    margin-bottom: 2rem;
     height: 36px;
     width: 217px;
     border-radius: 4px;
@@ -33,13 +33,41 @@
     font-size: 14px;
 }
 
+.Hero__image {
+    width: 80%;
+}
+
+.Hero__image img {
+    width: 100%;
+}
+
 .Hero__subreddit {
     color: #93918F;
     font-family: Montserrat, sans-serif;
     font-size: 16px;
     font-weight: 500;
+    margin-bottom: 2rem;
 }
 
-.Hero__image {
-    
+.Info__block {
+    margin: 0;
+    width: 50% !important;
+    margin-top: 5rem;
+    line-height: 28px;
+}
+
+.Info__block_header {
+    font-size: 24px;
+    font-family: Bitter;
+    color: black;
+    margin-bottom: 1rem;
+}
+
+.Info__block_text {
+    color: #93918F;
+    font-family: Montserrat, sans-serif;   
+}
+.Info__block_text a {
+    text-decoration: none;
+    color: #FDB755;   
 }
