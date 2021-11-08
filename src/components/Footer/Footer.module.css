@@ -2,8 +2,9 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding-left: 10%;
-    padding-right: 10%;
+    width: 100%;
+    align-self: flex-end;
+    margin-top: auto;
 }
 
 .textLink {
