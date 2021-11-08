@@ -1,0 +1,14 @@
+.Footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.textLink {
+    color: #636363;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+}
