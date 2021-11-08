@@ -22,7 +22,7 @@ const Home = () => (
       />
     </Link>
     <div className={styles.Info__block}>
-      <h3 name="how-it-works" className={styles.Info__block_header}>How it works</h3>
+      <h3 id="how-it-works" className={styles.Info__block_header}>How it works</h3>
       <p className={styles.Info__block_text}>
         • We find the 500 top posts from the past year for a subreddit.
         <br />• The data is visualized in a heatmap grouped by weekday and hour
@@ -31,7 +31,7 @@ const Home = () => (
       </p>
     </div>
     <div className={styles.Info__block}>
-      <h3 name="about" className={styles.Info__block_header}>About</h3>
+      <h3 id="about" className={styles.Info__block_header}>About</h3>
       <p className={styles.Info__block_text}>
         This app was created during a course on{' '}
         <a className={styles.Info__block_text_link} href="https://profy.dev">
