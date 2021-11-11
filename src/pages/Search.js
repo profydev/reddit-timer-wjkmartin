@@ -13,7 +13,7 @@ const Search = () => {
       <div
         className={styles.Search__inputArea}
       >
-        <p>r / </p>
+        <p className={styles.Search__preLabel}>r / </p>
         <input
           className={styles.Search__inputBox}
           type="text"

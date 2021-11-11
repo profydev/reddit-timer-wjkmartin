@@ -31,6 +31,12 @@
     font-size: 14px;
 }
 
+.Search__preLabel {
+    font-size: 18px;
+    font-family: Montserrat, sans-serif;
+    color: #9E9E9E;
+}
+
 .Search__submitButton {
     border: none;
     height: 36px;
