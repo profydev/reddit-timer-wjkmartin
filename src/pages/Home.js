@@ -11,11 +11,11 @@ const Home = () => (
     <p className={styles.Hero__subTitle}>
       Great timing, great results! Find the best time to post on your subreddit.
     </p>
-    <Link className={styles.Hero__linkButton} to="/search#javascript">
+    <Link className={styles.Hero__linkButton} to="/search?#javascript">
       SHOW ME THE BEST TIME
     </Link>
     <p className={styles.Hero__subreddit}>r/javascript</p>
-    <Link className={styles.Hero__image} to="/search#javascript">
+    <Link className={styles.Hero__image} to="/search?#javascript">
       <img
         alt="A heatmap displaying when the best time is to post of r/javascript"
         src="/table.png"
