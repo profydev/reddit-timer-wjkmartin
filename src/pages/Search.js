@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 
 import styles from './Search.module.css';
@@ -6,6 +5,7 @@ import styles from './Search.module.css';
 const Search = () => {
   const history = useHistory();
   const subredditInitial = useParams().subreddit;
+
   const [subReddit, setSubreddit] = useState(subredditInitial);
   const [isLocaded, setIsLoaded] = useState(false);
   function handleSubmit(event) {
@@ -18,6 +18,7 @@ const Search = () => {
   };
   useEffect(() => {
     setSubreddit(subredditInitial);
+
     fetch(`https://www.reddit.com/r/${subReddit}/top.json?t=year&limit=500`)
       .then((response) => response.json())
       .then(
@@ -50,6 +51,7 @@ const Search = () => {
           Search
         </button>
       </form>
+
       {isLocaded ? (
         ''
       ) : (
