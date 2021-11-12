@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 
 import styles from './Search.module.css';
@@ -29,7 +30,7 @@ const Search = () => {
         (error) => {
           setIsLoaded(true);
           console.log(error);
-        },
+        }
       );
   }, [subredditInitial, subReddit]);
 
