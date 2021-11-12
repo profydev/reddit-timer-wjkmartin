@@ -30,7 +30,7 @@ const Search = () => {
         (error) => {
           setIsLoaded(true);
           console.log(error);
-        }
+        },
       );
   }, [subredditInitial, subReddit]);
 
