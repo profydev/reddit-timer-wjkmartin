@@ -1,23 +1,31 @@
-import React, { useEffect } from 'react';
+/* eslint-disable comma-dangle */
+import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
+import useFetchPosts from '../hooks/useFetchPosts';
+import useInput from '../hooks/useInput';
 
 import styles from './Search.module.css';
 
 const Search = () => {
   const history = useHistory();
-  const subredditInitial = useParams().subreddit;
-  const [subReddit, setSubreddit] = React.useState(subredditInitial);
+  const params = useParams();
+  const [subreddit, setSubreddit] = useState(params.subreddit);
+  // eslint-disable-next-line prefer-const
+  let [inputValue, input] = useInput(styles.Search__inputBox, subreddit);
+
+  const { isLoading, hasError, posts } = useFetchPosts(subreddit);
+
   function handleSubmit(event) {
     event.preventDefault();
-    history.push(`/search/${subReddit}`);
+    history.push(`/search/${inputValue}`);
+    setSubreddit(inputValue);
   }
 
-  const onChange = (event) => {
-    setSubreddit(event.target.value);
-  };
   useEffect(() => {
-    setSubreddit(subredditInitial);
-  }, [subredditInitial]);
+    if (subreddit !== params.subreddit) {
+      setSubreddit(params.subreddit);
+    }
+  }, [params.subreddit, subreddit, input]);
 
   return (
     <div className={styles.Search}>
@@ -26,17 +34,28 @@ const Search = () => {
       </h1>
       <form onSubmit={handleSubmit} className={styles.Search__inputArea}>
         <p className={styles.Search__preLabel}>r / </p>
-        <input
-          className={styles.Search__inputBox}
-          type="text"
-          name="subreddit"
-          onChange={onChange}
-          value={subReddit}
-        />
+        {input}
         <button className={styles.Search__submitButton} type="submit">
           Search
         </button>
       </form>
+      {!isLoading ? (
+        ''
+      ) : (
+        <img
+          className={styles.Search__spinner}
+          src="/loading_spinner.svg"
+          alt="spinner"
+        />
+      )}
+      {hasError ? 'error' : ''}
+      {posts.map((post) => (
+        <div>
+          {new Date(post.data.created_utc).toUTCString()}
+          {' - '}
+          {post.data.score}
+        </div>
+      ))}
     </div>
   );
 };
