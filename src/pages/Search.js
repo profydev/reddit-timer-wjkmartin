@@ -1,68 +1,35 @@
 /* eslint-disable comma-dangle */
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
+import useFetchPosts from '../hooks/useFetchPosts';
+import useInput from '../hooks/useInput';
 
 import styles from './Search.module.css';
 
 const Search = () => {
   const history = useHistory();
-  const [subredditInitial, setSubredditInitial] = useState(
-    useParams().subreddit
-  );
-  const [subReddit, setSubreddit] = useState(subredditInitial);
-  let inputValue = subredditInitial;
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [subredditInsufData, setSubredditInsufData] = useState(false);
-  const [isInvalidSubreddit, setIsInvalidSubreddit] = useState(false);
+  const params = useParams();
+  const [subreddit, setSubreddit] = useState(params.subreddit);
+  // eslint-disable-next-line prefer-const
+  let [inputValue, input] = useInput(styles.Search__inputBox, subreddit);
+
+  console.log(subreddit);
+  console.log(params);
+
+  const { isLoading, hasError, posts } = useFetchPosts(subreddit);
+
   function handleSubmit(event) {
     event.preventDefault();
-    history.push(`/search/${subReddit}`);
-    setSubredditInitial(inputValue);
+    history.push(`/search/${inputValue}`);
     setSubreddit(inputValue);
+    console.log(posts);
   }
 
-  const onChange = (event) => {
-    inputValue = event.target.value;
-  };
-
   useEffect(() => {
-    async function fetchPosts({ previousPosts = [], after }, _subReddit) {
-      if (previousPosts.length >= 500) {
-        return previousPosts;
-      }
-
-      const response = await fetch(
-        after
-          ? `https://www.reddit.com/r/${_subReddit}/top.json?t=year&limit=100&after=${after}`
-          : `https://www.reddit.com/r/${_subReddit}/top.json?t=year&limit=100`
-      ).then((res) => res.json());
-      if (response.data.children.length < 100) {
-        setSubredditInsufData(true);
-        return null;
-      }
-
-      return fetchPosts(
-        {
-          previousPosts: previousPosts.concat(response.data.children),
-          after: response.data.after,
-        },
-        _subReddit
-      );
+    if (subreddit !== params.subreddit) {
+      setSubreddit(params.subreddit);
     }
-
-    const posts = fetchPosts({}, subReddit);
-
-    posts
-      .catch(() => {
-        if (!subredditInsufData) {
-          setSubredditInsufData(false);
-          setIsInvalidSubreddit(true);
-        }
-      })
-      .finally(() => {
-        setIsLoaded(true);
-      });
-  }, [subReddit, subredditInsufData, isInvalidSubreddit]);
+  }, [params.subreddit, subreddit, input]);
 
   return (
     <div className={styles.Search}>
@@ -71,18 +38,12 @@ const Search = () => {
       </h1>
       <form onSubmit={handleSubmit} className={styles.Search__inputArea}>
         <p className={styles.Search__preLabel}>r / </p>
-        <input
-          className={styles.Search__inputBox}
-          type="text"
-          name="subreddit"
-          onChange={onChange}
-          defaultValue={subredditInitial}
-        />
+        {input}
         <button className={styles.Search__submitButton} type="submit">
           Search
         </button>
       </form>
-      {isLoaded ? (
+      {!isLoading ? (
         ''
       ) : (
         <img
@@ -91,6 +52,7 @@ const Search = () => {
           alt="spinner"
         />
       )}
+      {hasError ? 'error' : ''}
     </div>
   );
 };
