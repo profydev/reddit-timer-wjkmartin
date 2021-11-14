@@ -19,7 +19,6 @@ const Search = () => {
     event.preventDefault();
     history.push(`/search/${inputValue}`);
     setSubreddit(inputValue);
-    console.log(posts);
   }
 
   useEffect(() => {
@@ -50,6 +49,13 @@ const Search = () => {
         />
       )}
       {hasError ? 'error' : ''}
+      {posts.map((post) => (
+        <div>
+          {new Date(post.data.created_utc).toUTCString()}
+          {' - '}
+          {post.data.score}
+        </div>
+      ))}
     </div>
   );
 };
