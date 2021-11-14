@@ -13,9 +13,6 @@ const Search = () => {
   // eslint-disable-next-line prefer-const
   let [inputValue, input] = useInput(styles.Search__inputBox, subreddit);
 
-  console.log(subreddit);
-  console.log(params);
-
   const { isLoading, hasError, posts } = useFetchPosts(subreddit);
 
   function handleSubmit(event) {
