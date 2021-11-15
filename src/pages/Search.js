@@ -6,6 +6,7 @@ import useInput from '../hooks/useInput';
 import Heatmap from '../components/Heatmap/Heatmap';
 
 import styles from './Search.module.css';
+import PostsTable from '../components/PostsTable/PostsTable';
 
 const Search = () => {
   const history = useHistory();
@@ -13,6 +14,7 @@ const Search = () => {
   const [subreddit, setSubreddit] = useState(params.subreddit);
   // eslint-disable-next-line prefer-const
   let [inputValue, input] = useInput(styles.Search__inputBox, subreddit);
+  const [selectedPostsToShow, setSelectedPostsToShow] = useState([]);
 
   const { isLoading, hasError, posts } = useFetchPosts(subreddit);
 
@@ -50,7 +52,15 @@ const Search = () => {
         />
       )}
       {hasError ? 'error' : ''}
-      {posts.length === 500 ? <Heatmap posts={posts} /> : ''}
+      {posts.length === 500 && !isLoading ? (
+        <Heatmap
+          setSelectedPosts={setSelectedPostsToShow}
+          posts={posts}
+        />
+      ) : (
+        ''
+      )}
+      {selectedPostsToShow.length > 0 ? (<PostsTable posts={selectedPostsToShow} />) : ''}
     </div>
   );
 };

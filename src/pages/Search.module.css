@@ -27,8 +27,8 @@
     border: none;
     outline: 1px solid #ccc;
     padding: 0 10px;
-    min-width: 50%;
     font-size: 14px;
+    width: 370px;
 }
 
 .Search__preLabel {

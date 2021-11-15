@@ -1,0 +1,26 @@
+.PostsTable {
+    border-collapse: collapse;
+    border-top: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    text-align: left;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    margin-top: 30px;
+}
+
+.PostsTable th, td {
+    border: 1px solid #DDDDDD;
+    padding: 0.5rem;
+}
+
+.PostsTable * a {
+    color: #0087FF;
+    text-decoration: none;
+}
+
+.PostsTable * a:hover {
+    color: #0087FF;
+    text-decoration: underline;
+}
+

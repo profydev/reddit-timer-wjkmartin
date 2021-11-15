@@ -6,7 +6,8 @@ import styles from './Heatmap.module.css';
 
 const Heatmap = (props) => {
   // eslint-disable-next-line no-unused-vars
-  const { posts } = props;
+  const { setSelectedPosts, posts } = props;
+
   const [selectedNode, setSelectedNode] = useState(null);
   const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
@@ -23,17 +24,32 @@ const Heatmap = (props) => {
 
   const postElems = [];
 
+  const handleClick = (time) => {
+    setSelectedNode(time);
+    setSelectedPosts(
+      posts.filter((post) => {
+        const date = new Date(post.data.created_utc * 1000);
+        return date.getHours() === time.hour && date.getDay() === time.day;
+      }),
+    );
+  };
+
   postsByDay.forEach((week, i1) => {
     postElems[i1] = week.map((numberOfPosts, i2) => (
       <div
         style={{ backgroundColor: colorsByNumberOfPosts(numberOfPosts) }}
-        className={`${(selectedNode?.day === i1 && selectedNode?.hour === i2) ? styles.Heatmap__node_selected : ''} ${styles.Heatmap__node}`}
+        className={`${
+          selectedNode?.day === i1 && selectedNode?.hour === i2
+            ? styles.Heatmap__node_selected
+            : ''
+        } ${styles.Heatmap__node}`}
         // eslint-disable-next-line react/no-array-index-key
         key={`${i1}-${i2}`}
-        onClick={() => setSelectedNode({ day: i1, hour: i2 })}
-        onKeyUp={() => setSelectedNode({ day: i1, hour: i2 })}
+        onClick={() => handleClick({ day: i1, hour: i2 })}
+        onKeyUp={() => handleClick({ day: i1, hour: i2 })}
         role="button"
-        tabIndex={i1 * i2}
+        tabIndex={((i1 + 1) * 24) + (i2 + 1)}
+
       >
         {numberOfPosts}
       </div>
