@@ -37,7 +37,7 @@ const PostsTable = (props) => {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href={`http://www.reddit.com${post.data.permalink}`}
+                href={`https://www.reddit.com${post.data.permalink}`}
               >
                 {truncate(post.data.title, 50)}
               </a>
@@ -58,7 +58,7 @@ const PostsTable = (props) => {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={`http://www.reddit.com/u/${post.data.author}`}
+                  href={`https://www.reddit.com/u/${post.data.author}`}
                 >
                   {truncate(post.data.author, 10)}
                 </a>
