@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 
+import colorsByNumberOfPosts from './heatmapNodeColorsByNumber';
 import styles from './Heatmap.module.css';
 
 const Heatmap = (props) => {
   // eslint-disable-next-line no-unused-vars
   const { posts } = props;
-  console.log(posts);
+  const [selectedNode, setSelectedNode] = useState(null);
   const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
   // create a 2d array of posts with the day of the week as the key and the hour of the day as the
@@ -20,15 +21,51 @@ const Heatmap = (props) => {
     postsByDay[day][hour] += 1;
   });
 
-  postsElems = postsByDay.forEach(week => {
-      week.map(numberOfPosts => {
-          return <div className={styles.}></div>
-      })
-  })
+  const postElems = [];
+
+  postsByDay.forEach((week, i1) => {
+    postElems[i1] = week.map((numberOfPosts, i2) => (
+      <div
+        style={{ backgroundColor: colorsByNumberOfPosts(numberOfPosts) }}
+        className={`${(selectedNode?.day === i1 && selectedNode?.hour === i2) ? styles.Heatmap__node_selected : ''} ${styles.Heatmap__node}`}
+        // eslint-disable-next-line react/no-array-index-key
+        key={`${i1}-${i2}`}
+        onClick={() => setSelectedNode({ day: i1, hour: i2 })}
+        onKeyUp={() => setSelectedNode({ day: i1, hour: i2 })}
+        role="button"
+        tabIndex={i1 * i2}
+      >
+        {numberOfPosts}
+      </div>
+    ));
+  });
+
   return (
     <div className={styles.Heatmap}>
-      <p>Heatmap</p>
-      <p>
+      <div style={{ display: 'flex' }}>
+        <div className={styles.Heatmap__days}>
+          <div className={styles.Heatmap__days_day}>Sunday</div>
+          <div className={styles.Heatmap__days_day}>Monday</div>
+          <div className={styles.Heatmap__days_day}>Tuesday</div>
+          <div className={styles.Heatmap__days_day}>Wednesday</div>
+          <div className={styles.Heatmap__days_day}>Thursday</div>
+          <div className={styles.Heatmap__days_day}>Friday</div>
+          <div className={styles.Heatmap__days_day}>Saturday</div>
+        </div>
+        <div>
+          <div className={styles.Heatmap__times}>
+            {new Array(12).fill(0).map((_, i) => (
+              <div className={styles.Heatmap__times_time}>
+                {Math.abs(i * 2 - 12) % 12 || 12}
+                :00
+                {i * 2 - 12 < 0 ? 'am' : 'pm'}
+              </div>
+            ))}
+          </div>
+          <div className={styles.Heatmap__nodeContainer}>{postElems}</div>
+        </div>
+      </div>
+      <p className={styles.Heatmap__timezone}>
         All times are shown in your time zone:
         {timezone}
       </p>
