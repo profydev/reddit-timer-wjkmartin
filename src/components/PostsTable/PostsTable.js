@@ -5,6 +5,15 @@ import styles from './PostsTable.module.css';
 
 const PostsTable = (props) => {
   const { posts } = props;
+
+  // takes a string of greater than "length" characters and returns
+  // a string of "length" characters or less
+  const truncate = (str, length) => {
+    if (str.length > length) {
+      return `${str.substring(0, length)}...`;
+    }
+    return str;
+  };
   return (
     <table className={styles.PostsTable}>
       <thead>
@@ -19,11 +28,23 @@ const PostsTable = (props) => {
       <tbody>
         {posts.map((post) => (
           <tr key={post.data.id}>
-            <td><a href={`http://www.reddit.com${post.data.permalink}`}>{post.data.title}</a></td>
-            <td>{new Date(post.data.created_utc).toLocaleTimeString()}</td>
+            <td>
+              <a href={`http://www.reddit.com${post.data.permalink}`}>
+                {truncate(post.data.title, 50)}
+              </a>
+            </td>
+            <td>{new Date(post.data.created_utc * 1000).toLocaleTimeString()}</td>
             <td>{post.data.score}</td>
             <td>{post.data.num_comments}</td>
-            <td><a href={`http://www.reddit.com/u/${post.data.author}`}>{post.data.author}</a></td>
+            <td>
+              {post.data.author === '[deleted]' ? (
+                '[deleted]'
+              ) : (
+                <a href={`http://www.reddit.com/u/${post.data.author}`}>
+                  {truncate(post.data.author, 10)}
+                </a>
+              )}
+            </td>
           </tr>
         ))}
       </tbody>
