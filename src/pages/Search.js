@@ -52,7 +52,7 @@ const Search = () => {
         />
       )}
       {hasError ? 'error' : ''}
-      {posts.length === 500 ? (
+      {posts.length === 500 && !isLoading ? (
         <Heatmap
           setSelectedPosts={setSelectedPostsToShow}
           posts={posts}
@@ -60,7 +60,6 @@ const Search = () => {
       ) : (
         ''
       )}
-      {console.log(selectedPostsToShow)}
       {selectedPostsToShow.length > 0 ? (<PostsTable posts={selectedPostsToShow} />) : ''}
     </div>
   );
