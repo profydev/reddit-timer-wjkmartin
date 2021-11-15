@@ -14,12 +14,14 @@
     background: linear-gradient(180deg, #FEFEFE 0%, #E9E9E9 100%);
     font-size: 14px;
     font-weight: 500;
+    border: 1px solid #F3F3F3;
+    box-sizing: border-box;
 }
 
 .Heatmap__times_time {
     display: inline-block;
     width: 80px;
-    height: 52px;
+    height: 50px;
     text-align: center;
     line-height: 52px;
 }

@@ -67,6 +67,7 @@ const Heatmap = (props) => {
       </div>
       <p className={styles.Heatmap__timezone}>
         All times are shown in your time zone:
+        {' '}
         {timezone}
       </p>
     </div>
