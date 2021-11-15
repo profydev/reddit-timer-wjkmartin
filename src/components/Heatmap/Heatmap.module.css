@@ -1,0 +1,79 @@
+.Heatmap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 375px;
+    margin-top: 60px;
+    font-family: Montserrat, sans-serif;
+    justify-content: space-around;
+}
+
+.Heatmap__times {
+    display: flex;
+    width: 960px;
+    background: linear-gradient(180deg, #FEFEFE 0%, #E9E9E9 100%);
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #F3F3F3;
+    box-sizing: border-box;
+}
+
+.Heatmap__times_time {
+    display: inline-block;
+    width: 80px;
+    height: 50px;
+    text-align: center;
+    line-height: 52px;
+}
+
+.Heatmap__days {
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+    margin-top: 52px;
+    background-color: #1E2537;
+    color: #fff;
+}
+
+.Heatmap__days_day {
+    height: 40px;
+    line-height: 40px;
+    width: 154px;
+    text-align: center;
+}
+
+.Heatmap__nodeContainer {
+    display: grid;
+    grid-template-columns: repeat(24, 40px);
+    grid-template-rows: repeat(7, 40px);
+}
+
+.Heatmap__node {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #fff;
+}
+
+.Heatmap__node:hover {
+    filter: brightness(1.1);
+}
+
+.Heatmap__node_selected {
+    filter: brightness(1.1);
+    box-sizing: border-box;
+    border: 2px solid #fff;
+}
+
+.Heatmap__timezone {
+    font-size: 14px;
+    color: #93918F;
+    font-weight: 400;
+}

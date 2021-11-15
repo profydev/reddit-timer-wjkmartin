@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import useFetchPosts from '../hooks/useFetchPosts';
 import useInput from '../hooks/useInput';
+import Heatmap from '../components/Heatmap/Heatmap';
 
 import styles from './Search.module.css';
 
@@ -49,13 +50,7 @@ const Search = () => {
         />
       )}
       {hasError ? 'error' : ''}
-      {posts.map((post) => (
-        <div>
-          {new Date(post.data.created_utc).toUTCString()}
-          {' - '}
-          {post.data.score}
-        </div>
-      ))}
+      {posts.length === 500 ? <Heatmap posts={posts} /> : ''}
     </div>
   );
 };
