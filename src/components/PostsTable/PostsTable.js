@@ -37,7 +37,7 @@ const PostsTable = (props) => {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href={`http://www.reddit.com${post.data.permalink}`}
+                href={`https://www.reddit.com${post.data.permalink}`}
               >
                 {truncate(post.data.title, 50)}
               </a>
