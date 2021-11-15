@@ -47,7 +47,7 @@ const Heatmap = (props) => {
         onClick={() => handleClick({ day: i1, hour: i2 })}
         onKeyUp={() => handleClick({ day: i1, hour: i2 })}
         role="button"
-        tabIndex={i1 * i2}
+        tabIndex={((i1 + 1) * 24) + (i2 + 1)}
       >
         {numberOfPosts}
       </div>
