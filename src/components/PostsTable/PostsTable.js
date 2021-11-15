@@ -15,11 +15,6 @@ const PostsTable = (props) => {
     return str;
   };
 
-  // sort posts by created_utc
-  posts.sort(
-    (a, b) => parseInt(a.data.created_utc, 10) - parseInt(b.data.created_utc, 10),
-  );
-
   return (
     <table className={styles.PostsTable}>
       <thead>
@@ -32,43 +27,48 @@ const PostsTable = (props) => {
         </tr>
       </thead>
       <tbody>
-        {posts.map((post) => (
-          <tr key={post.data.id}>
-            <td>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={`http://www.reddit.com${post.data.permalink}`}
-              >
-                {truncate(post.data.title, 50)}
-              </a>
-            </td>
-            <td>
-              {
-                new Date(post.data.created_utc * 1000).toLocaleString('en-US', {
-                  hour: 'numeric',
-                  minute: 'numeric',
-                  hour12: true,
-                })
-              }
-            </td>
-            <td>{post.data.score}</td>
-            <td>{post.data.num_comments}</td>
-            <td>
-              {post.data.author === '[deleted]' ? (
-                '[deleted]'
-              ) : (
+        {posts
+          .sort(
+            (a, b) => parseInt(a.data.created, 10) - parseInt(b.data.created, 10),
+          )
+          .map((post) => (
+            <tr key={post.data.id}>
+              <td>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={`http://www.reddit.com/u/${post.data.author}`}
+                  href={`http://www.reddit.com${post.data.permalink}`}
                 >
-                  {truncate(post.data.author, 10)}
+                  {truncate(post.data.title, 50)}
                 </a>
-              )}
-            </td>
-          </tr>
-        ))}
+              </td>
+              <td>
+                {new Date(post.data.created_utc * 1000).toLocaleString(
+                  'en-US',
+                  {
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    hour12: true,
+                  },
+                )}
+              </td>
+              <td>{post.data.score}</td>
+              <td>{post.data.num_comments}</td>
+              <td>
+                {post.data.author === '[deleted]' ? (
+                  '[deleted]'
+                ) : (
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={`http://www.reddit.com/u/${post.data.author}`}
+                  >
+                    {truncate(post.data.author, 10)}
+                  </a>
+                )}
+              </td>
+            </tr>
+          ))}
       </tbody>
     </table>
   );
