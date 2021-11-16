@@ -72,9 +72,9 @@ const Heatmap = (props) => {
           <div className={styles.Heatmap__times}>
             {new Array(12).fill(0).map((_, i) => (
               <div className={styles.Heatmap__times_time}>
-                {Math.abs(i * 2 - 12) % 12 || 12}
-                :00
-                {i * 2 - 12 < 0 ? 'am' : 'pm'}
+                {(i * 2) > 12 ? (i * 2) - 12 : i * 2 || 12}
+                {':00'}
+                {i < 5 ? 'am' : 'pm'}
               </div>
             ))}
           </div>
