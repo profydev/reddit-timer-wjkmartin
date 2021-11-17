@@ -46,7 +46,7 @@ The code reviews gave me insights into best practices to follow (see [this examp
  * React Router
  * React Testing Suite + Cypress
 
-## Tools Use for the Project
+## Tools Used for the Project
 * [Figma](https://www.figma.com/) - This is where the designs live.
 * [Perfect Pixel](https://chrome.google.com/webstore/detail/perfectpixel-by-welldonec/dkaagdgjmgdmbnecmcefdhjekcoceebi?hl=en) - To help verify a pixel perfect layout.
 * [ClickUp](https://clickup.com/) - Kanban board for project management.
