@@ -23,7 +23,7 @@
 
 This project was completed as part of the premium course at [profy.dev](https://profy.dev/employers). This course mimics a professional real world development environment.
 
-**[You can try it here](https://reddit-timer-wjkmartin.herokuapp.com)**
+**[The app is hosted on a free heroku dyno, here. (it might take a moment to load as the dyno wakes up)](https://reddit-timer-wjkmartin.herokuapp.com)**
 
 Designs were provided via [Figma](https://www.figma.com/). The project was split into small tasks using [ClickUp](https://clickup.com/) as a project management tool. I created a pull request for every task.
 
