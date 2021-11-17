@@ -12,7 +12,9 @@
 ![App Search Screen](./docs/reddit_timer_search_reactjs.png "Search Reactjs SubReddit")
 
 > The heatmap demonstrates the highest concentrations of successful posts at a glance based on the most popular posts of that subreddit.
+
 > The data is fetched as needed from the Reddit API.
+
 > You can click on a cell of the heatmap to drill down into the individual posts.
 
 <br />
