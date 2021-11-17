@@ -1,6 +1,6 @@
 <h1 align="center"> Reddit Timer</h1>
 <h2 align="center"> It helps you figure out when to post based on when other successful posts were created</h2>
-<a href="https://reddit-timer-wjkmartin.herokuapp.com/"><h3 align="center">You can try it here</h3></a>
+<a target="_blank" href="https://reddit-timer-wjkmartin.herokuapp.com/"><h3 align="center">You can try it here</h3></a>
 <br />
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
