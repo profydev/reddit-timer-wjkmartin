@@ -1,5 +1,5 @@
 <h1 align="center"> Reddit Timer</h1>
-<h2 align="center"> It helps you figure out when to post based on when other successful posts were created</h2>
+<h3 align="center"> It helps you figure out when to post based on when other successful posts were created</h3>
 <br />
 
 <p align="center">
@@ -8,9 +8,13 @@
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
 </p>
+
 ![App Search Screen](./docs/reddit_timer_search_reactjs.png "Search Reactjs SubReddit")
 
-<h2 align="center"> The heatmap demonstrates the highest concentrations of successful posts at a glance.</h2>
+> The heatmap demonstrates the highest concentrations of successful posts at a glance based on the most popular posts of that subreddit.
+> The data is fetched as needed from the Reddit API.
+> You can click on a cell of the heatmap to drill down into the individual posts.
+
 <br />
 
 ## About This Project
