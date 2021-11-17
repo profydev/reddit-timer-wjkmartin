@@ -8,16 +8,10 @@
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
 </p>
-
-
-
-
-![App Home Screen](./docs/reddit_timer_home.png "Home Screen")
+![App Search Screen](./docs/reddit_timer_search_reactjs.png "Search Reactjs SubReddit")
 
 <h2 align="center"> The heatmap demonstrates the highest concentrations of successful posts at a glance.</h2>
 <br />
-
-![App Search Screen](./docs/reddit_timer_search_reactjs.png "Search Reactjs SubReddit")
 
 ## About This Project
 
