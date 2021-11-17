@@ -51,7 +51,7 @@ const Search = () => {
           alt="spinner"
         />
       )}
-      {hasError ? 'error' : ''}
+      {hasError ? '\n API error, please try again.' : ''}
       {posts.length === 500 && !isLoading ? (
         <Heatmap
           setSelectedPosts={setSelectedPostsToShow}
