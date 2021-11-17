@@ -1,7 +1,7 @@
 <h1 align="center"> Reddit Timer</h1>
 <h2 align="center"> It helps you figure out when to post based on when other successful posts were created</h2>
-<a target="_blank" href="https://reddit-timer-wjkmartin.herokuapp.com/"><h3 align="center">You can try it here</h3></a>
 <br />
+
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
@@ -22,6 +22,8 @@
 ## About This Project
 
 This project was completed as part of the premium course at [profy.dev](https://profy.dev/employers). This course mimics a professional real world development environment.
+
+**[You can try it here](https://reddit-timer-wjkmartin.herokuapp.com)**
 
 Designs were provided via [Figma](https://www.figma.com/). The project was split into small tasks using [ClickUp](https://clickup.com/) as a project management tool. I created a pull request for every task.
 
