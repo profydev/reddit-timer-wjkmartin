@@ -72,5 +72,5 @@ yarn test
 ## Author
 🧙‍♂️ **Will Martin**
 
-* Website: [willmartin.ca](https://www.willmartin.ca/) - please feed the dog.
+* Website: [willmartin.ca](https://www.willmartin.ca/)
 * LinkedIn: [William Martin](https://www.linkedin.com/in/william-martin-a1890b184/)
